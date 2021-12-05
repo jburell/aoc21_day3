@@ -26,3 +26,14 @@ fn part_1() {
   // Assert
   assert_eq!(2954600, actual);
 }
+
+#[test]
+fn part_2() {
+  // Arrange
+  let data = get_data("test.txt");
+
+  // Act
+  let actual = calc_oxygen_and_co2(data.0, data.1);
+  // Assert
+  assert_eq!(230, actual);
+}
