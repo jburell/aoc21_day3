@@ -1,3 +1,6 @@
+use core::num;
+use std::collections::VecDeque;
+
 pub fn calc_power_consumption(data: Vec<u32>, num_bits: usize) -> u32 {
   let r: Vec<u32> = 
     data.iter()
@@ -34,7 +37,16 @@ impl Elem {
 }
 
 pub fn calc_oxygen_and_co2(data: Vec<u32>, num_bits: usize) -> u32 {
-  let r = 
+  let queues = vec![VecDeque::new(); num_bits];
+
+  Some((queues, data))
+  .map(|(q, d)|{
+    q.iter().enumerate()
+    
+  });
+
+
+  /*let r = 
     data.iter()
     .fold(vec![Elem::new(); num_bits], |acc, bits|{
       let res = 
@@ -54,6 +66,7 @@ pub fn calc_oxygen_and_co2(data: Vec<u32>, num_bits: usize) -> u32 {
             Elem((count_zeroes, acc_zeroes), (count_ones + 1, acc_ones))
           }
           _ => panic!("only ones and zeroes possible")
+
         }
       })
       .collect();
@@ -63,7 +76,7 @@ pub fn calc_oxygen_and_co2(data: Vec<u32>, num_bits: usize) -> u32 {
     .fold(Vec::new(), |acc, vec| {
       acc.push(vec);
       acc
-    });
+    });*/
 
   let num_words_div_2  = data.len() as u32 >> 1;
   let oxy: u32 = 
